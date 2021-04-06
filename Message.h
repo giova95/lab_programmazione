@@ -13,6 +13,14 @@ public:
         return sender;
     }
 
+    bool isRead() const {
+        return read;
+    }
+
+    void setRead(bool read) {
+        Message::read = read;
+    }
+
     const std::string & getReceiver() const {
         return receiver;
     }
@@ -22,6 +30,7 @@ public:
     }
 
 private:
+    bool read;
     std::string receiver, sender, text;
 };
 #endif //CHAT_PROJECT_MESSAGE_H
