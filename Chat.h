@@ -8,13 +8,25 @@
 
 #include <string>
 #include <list>
+#include <vector>
+
 #include "Subject.h"
+#include "User.h"
+#include "Message.h"
 
 class Chat : public Subject{
 public:
-    explicit Chat(){}
+    Chat(User user1, User user2):myId(user1.getName()),otherId(user2.getName()){}
 
-    virtual ~Chat();
+    virtual ~Chat(){}
+
+    void addMessage(const Message& msg);
+
+    void readMessage(int i);
+
+    int getUnreadMessages();
+
+    Message& lastMessage();
 
     virtual void addObserver(Observer* o) override;
 
@@ -40,7 +52,9 @@ public:
 
 private:
     std::list<Observer*> observers;
+    std::vector<Message> messages;
     std::string myId,otherId;
+
 };
 
 
