@@ -6,8 +6,10 @@
 #define CHAT_PROJECT_OBSEREVER_H
 class Observer{
 public:
-    virtual update()=0;
     virtual ~Observer(){}
+    virtual void attach()=0;
+    virtual void detach()=0;
+    virtual update()=0;
 };
 
 #endif //CHAT_PROJECT_OBSEREVER_H

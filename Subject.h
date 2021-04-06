@@ -4,6 +4,9 @@
 
 #ifndef CHAT_PROJECT_SUBJECT_H
 #define CHAT_PROJECT_SUBJECT_H
+
+#include "Observer.h"
+
 class Subject{
 public:
     virtual void addObserver(Observer* o)=0;
