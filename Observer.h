@@ -9,7 +9,7 @@ public:
     virtual ~Observer(){}
     virtual void attach()=0;
     virtual void detach()=0;
-    virtual update()=0;
+    virtual void update()=0;
 };
 
 #endif //CHAT_PROJECT_OBSEREVER_H
