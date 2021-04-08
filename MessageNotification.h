@@ -22,7 +22,7 @@ public:
 
     virtual void update() override;
 
-    void print(Message &msg);
+    void print(const Message &msg);
 
     bool isActive() const {
         return active;

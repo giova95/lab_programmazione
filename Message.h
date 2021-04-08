@@ -8,17 +8,10 @@
 
 class Message{
 public:
-    Message(std::string s, std::string r, std::string t): sender(s), receiver(r), text(t){}
+    Message(std::string se, std::string re, std::string te, bool r): sender(se), receiver(re), text(te), read(r){}
+
     const std::string & getSender() const {
         return sender;
-    }
-
-    bool isRead() const {
-        return read;
-    }
-
-    void setRead(bool read) {
-        Message::read = read;
     }
 
     const std::string & getReceiver() const {
@@ -27,6 +20,14 @@ public:
 
     const std::string & getText() const {
         return text;
+    }
+
+    bool isRead() const {
+        return read;
+    }
+
+    void setRead(bool read) {
+        Message::read = read;
     }
 
 private:

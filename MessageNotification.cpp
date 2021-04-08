@@ -17,7 +17,7 @@ void MessageNotification::update() {
         this->print(subject->lastMessage());
 }
 
-void MessageNotification::print(Message &msg) {
+void MessageNotification::print(const Message &msg) {
     std::cout << "Nuovo messaggio " <<std::endl;
     std::cout << "Inviato da "<< msg.getSender() << " a " << msg.getReceiver() << std::endl;
     std::cout << "Testo del messaggio: " << msg.getText() <<std::endl;
