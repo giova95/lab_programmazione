@@ -20,28 +20,32 @@ void Chat::notify() {
 
 void Chat::addMessage(const Message &msg) {
     messages.push_back(msg);
-    this->notify();
+    if(myId==msg.getReceiver())
+        this->notify();
 }
 
 void Chat::readMessage(int i) {
-    if (messages[i].getSender() == otherId) {
-        std::cout <<"Sender: "<< messages[i].getSender() <<", "<<"Receiver: "<< messages[i].getReceiver() << std::endl;
-        std::cout <<"Text: "<< messages[i].getText() << std::endl;
+    if (messages[i].getSender() == otherId && i<=messages.size()) {
+        std::cout <<"Inviato da: "<< messages[i].getSender() <<", "<<"Ricevuto da: "<< messages[i].getReceiver() << std::endl;
+        std::cout <<"Testo del messaggio: "<< messages[i].getText() << std::endl;
         messages[i].setRead(true);
         this->notify();
     }
+    else
+        std::cout<<"Messaggio non presente nella chat!"<<std::endl;
 }
 
 int Chat::getUnreadMessages() {
     int UM=0;
-    for(auto& msg:messages)
-        if(msg.getReceiver()==myId)
-            if(!msg.isRead())
+    for(auto& msg:messages) {
+        if (msg.getReceiver() == myId)
+            if (!msg.isRead())
                 UM++;
+    }
     return UM;
 }
 
-Message &Chat::lastMessage() {
+const Message &Chat::lastMessage() {
     return messages.back();
 }
 

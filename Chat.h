@@ -26,7 +26,7 @@ public:
 
     int getUnreadMessages();
 
-    Message& lastMessage();
+    const Message& lastMessage();
 
     virtual void addObserver(Observer* o) override;
 
