@@ -4,6 +4,8 @@
 
 #include "Chat.h"
 
+Chat::Chat(User u1, User u2) : myId(u1.getName()), otherId(u2.getName()) {}
+
 
 void Chat::addObserver(Observer *o) {
     observers.push_back(o);

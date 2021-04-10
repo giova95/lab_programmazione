@@ -17,7 +17,8 @@
 class User;
 class Chat : public Subject{
 public:
-    Chat(User user1, User user2):myId(user1.getName()),otherId(user2.getName()){}
+
+    Chat(User u1, User u2);
 
     virtual ~Chat(){}
 
