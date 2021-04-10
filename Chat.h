@@ -14,6 +14,7 @@
 #include "User.h"
 #include "Message.h"
 
+class User;
 class Chat : public Subject{
 public:
     Chat(User user1, User user2):myId(user1.getName()),otherId(user2.getName()){}
@@ -54,7 +55,6 @@ private:
     std::list<Observer*> observers;
     std::vector<Message> messages;
     std::string myId,otherId;
-
 };
 
 
