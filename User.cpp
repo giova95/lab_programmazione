@@ -3,6 +3,7 @@
 //
 
 #include "User.h"
+#include "Chat.h"
 
 void User::addChat(Chat *c, User &u) {
     chats.insert(std::make_pair(u.getName(),c));
@@ -19,7 +20,7 @@ Chat *User::findChat(const User &u) {
 }
 
 Chat *User::createChat(User u) {
-    Chat* c = new Chat((*this),u);
+    Chat* c = new Chat((*this), u);
     chats.insert(std::make_pair(u.getName(),c));
     u.addChat(c, *this);
     return c;

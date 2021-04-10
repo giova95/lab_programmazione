@@ -4,16 +4,18 @@
 
 #ifndef CHAT_PROJECT_USER_H
 #define CHAT_PROJECT_USER_H
+
 #include <iostream>
 #include <map>
+
 #include "Chat.h"
 
 class Chat;
 class User {
 public:
-    explicit User(std::string &name) : name(name) {}
+    explicit User(std::string name) : name(name) {}
 
-    ~User();
+    virtual ~User(){}
 
     void addChat(Chat* c, User& u);
 
