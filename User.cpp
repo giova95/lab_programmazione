@@ -12,6 +12,10 @@ void User::addChat(Chat *c, User &u) {
 void User::removeChat(const User &u) {
      auto it = chats.find(u.getName());
      chats.erase(it);
+     if(chats.empty())
+         std::cout<<"Chat rimossa correttamente"<<std::endl;
+     else
+         std::cerr<<"Impossibile rimuovere la chat"<<std::endl;
 }
 
 Chat *User::findChat(const User &u) {
