@@ -26,7 +26,7 @@ public:
 
     void readMessage(int i);
 
-    int getUnreadMessages();
+    void getUnreadMessages();
 
     const Message& lastMessage();
 
