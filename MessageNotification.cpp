@@ -12,8 +12,8 @@ void MessageNotification::detach() {
     subject->removeObserver(this);
 }
 
-void MessageNotification::update() {
-    if(active)
+void MessageNotification::update(){
+    if(this->isActive())
         this->print(subject->lastMessage());
 }
 

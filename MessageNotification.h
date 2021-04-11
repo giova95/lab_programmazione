@@ -5,7 +5,6 @@
 #ifndef CHAT_PROJECT_MESSAGENOTIFICATION_H
 #define CHAT_PROJECT_MESSAGENOTIFICATION_H
 
-
 #include "Observer.h"
 #include "Chat.h"
 #include "Message.h"
