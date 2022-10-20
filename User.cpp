@@ -23,8 +23,8 @@ Chat *User::findChat(const User &u) {
     return (it->second);
 }
 
-Chat *User::createChat(User u) {
-    Chat* c = new Chat((*this), u);
+Chat *User::createChat(int i, User u) {
+    Chat* c = new Chat(i, (*this), u);
     chats.insert(std::make_pair(u.getName(),c));
     u.addChat(c, *this);
     return c;

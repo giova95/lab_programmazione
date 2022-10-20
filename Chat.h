@@ -18,13 +18,13 @@ class User;
 class Chat : public Subject{
 public:
 
-    Chat(User u1, User u2);
+    Chat(int id, User u1, User u2);
 
     virtual ~Chat(){}
 
     void addMessage(const Message& msg);
 
-    void readMessage(int i);
+    void readMessages();
 
     void getUnreadMessages();
 
@@ -38,6 +38,10 @@ public:
 
     const std::string &getMyId() const {
         return myId;
+    }
+
+    int getChatId() const {
+        return chatId;
     }
 
     const std::string &getOtherId() const {
@@ -55,6 +59,7 @@ public:
 private:
     std::list<Observer*> observers;
     std::vector<Message> messages;
+    int chatId;
     std::string myId,otherId;
 };
 

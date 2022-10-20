@@ -5,6 +5,7 @@
 #ifndef CHAT_PROJECT_MESSAGE_H
 #define CHAT_PROJECT_MESSAGE_H
 #include <iostream>
+#include <unistd.h>
 
 class Message{
 public:
@@ -26,8 +27,8 @@ public:
         return read;
     }
 
-    void setRead(bool read) {
-        Message::read = read;
+    void setRead(bool r) {
+        read = r;
     }
 
 private:

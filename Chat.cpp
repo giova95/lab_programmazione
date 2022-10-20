@@ -4,7 +4,7 @@
 
 #include "Chat.h"
 
-Chat::Chat(User u1, User u2) : myId(u1.getName()), otherId(u2.getName()) {}
+Chat::Chat(int id, User u1, User u2) : chatId(id+1), myId(u1.getName()), otherId(u2.getName()) {}
 
 
 void Chat::addObserver(Observer *o) {
@@ -25,25 +25,29 @@ void Chat::addMessage(const Message &msg) {
     this->notify();
 }
 
-void Chat::readMessage(int i) {
-    if (i >0 && i<=messages.size()){
-        std::cout<<"LETTURA MESSAGGIO N° "<< i << " IN CORSO..."<<std::endl;
-        std::cout <<"Inviato da: "<< messages[i].getSender() <<" , "<<"Ricevuto da: "<< messages[i].getReceiver() << std::endl;
-        std::cout <<"Testo del messaggio: "<< messages[i].getText() << std::endl;
-        messages[i].setRead(true);
+void Chat::readMessages() {
+    std::cout<<"READ MESSAGES WITH: "<<this->getOtherId()<<" FROM CHAT: "<<chatId<<std::endl;
+    for(auto msg:messages){
+        std::cout <<"Message Text: "<< msg.getText() << std::endl;
+        std::cout <<"Send By: "<< msg.getSender() << std::endl;
+        msg.setRead(true);
+        std::cout<<msg.isRead()<<std::endl;
     }
-    else
-        std::cout<<"Messaggio non presente nella chat!"<<std::endl;
 }
 
 void Chat::getUnreadMessages() {
     int UM=0;
-    for(auto& msg:messages) {
-        if (msg.getReceiver() == myId)
-            if (!msg.isRead())
-                UM+=1;
+    for(const auto& msg:messages) {
+        if (msg.getReceiver() == myId) {
+            if (!msg.isRead()) {
+                UM += 1;
+            }
+        }
     }
-    std::cout<<"Hai " << UM << " messaggi non letti"<<std::endl;
+    if(UM!=0)
+        std::cout<<"\033[1:32mYou have " << UM << " Unread Messages in Chat: "<<chatId<<"\033[0m"<<std::endl;
+    else
+        std::cout<<"\033[1:32mYou haven't unread Messages in Chat: \033[0m"<<chatId<<"\033[0m"<<std::endl;
 }
 
 const Message &Chat::lastMessage() {

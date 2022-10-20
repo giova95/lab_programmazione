@@ -18,7 +18,8 @@ void MessageNotification::update(){
 }
 
 void MessageNotification::print(const Message &msg) {
-    std::cout << "Nuovo messaggio " <<std::endl;
-    std::cout << "Inviato da "<< msg.getSender() << " a " << msg.getReceiver() << std::endl;
-    std::cout << "Testo del messaggio: " << msg.getText() <<std::endl;
+    std::cout << " \033[1;32mNEW MESSAGE(1) \033[0m" <<std::endl;
+    sleep(1);
+    std::cout << "Message Text: " << msg.getText() <<std::endl;
+    std::cout << "Send By: "<< msg.getSender() <<std::endl;
 }

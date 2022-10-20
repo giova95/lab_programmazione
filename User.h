@@ -23,7 +23,7 @@ public:
 
     Chat* findChat(const User& u);
 
-    Chat* createChat(User u);
+    Chat* createChat(int id, User u);
 
     const std::string &getName() const {
         return name;
