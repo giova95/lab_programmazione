@@ -28,7 +28,6 @@ public:
     const std::string &getName() const {
         return name;
     }
-
     void setName(const std::string &name) {
         User::name = name;
     }

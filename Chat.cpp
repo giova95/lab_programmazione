@@ -25,6 +25,19 @@ void Chat::addMessage(const Message &msg) {
     this->notify();
 }
 
+void Chat::readMessage(int i){
+    if(i>0 && i<messages.size()) {
+        if (messages[i].getSender() == otherId) {
+            std::cout <<"Sender: "<< messages[i].getSender() <<", "<<"Receiver: "<< messages[i].getReceiver() << std::endl;
+            std::cout <<"Text: "<< messages[i].getText() << std::endl;
+            messages[i].setRead(true);
+            this->notify();
+        }
+    }
+    else
+        throw std::out_of_range(" Messaggio non presente nella chat");
+}
+
 void Chat::readMessages() {
     std::cout<<"READ MESSAGES WITH: "<<this->getOtherId()<<" FROM CHAT: "<<chatId<<std::endl;
     for(auto msg:messages){

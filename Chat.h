@@ -24,6 +24,8 @@ public:
 
     void addMessage(const Message& msg);
 
+    void readMessage(int i);
+
     void readMessages();
 
     void getUnreadMessages();
@@ -46,6 +48,10 @@ public:
 
     const std::string &getOtherId() const {
         return otherId;
+    }
+
+    void setChatId(int chatId) {
+        Chat::chatId = chatId;
     }
 
     void setMyId(const std::string &myId) {
