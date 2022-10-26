@@ -14,8 +14,7 @@ using namespace std;
 
 void menu();
 Chat firstChoice(User u,int i);
-void secondChoice(vector<Chat>& c);
-vector<Chat>& thirdChoice(vector<Chat>& c);
+vector<Chat>& secondChoice(vector<Chat>& c);
 
 string name;
 string name2;
@@ -33,7 +32,7 @@ int main() {
     //Menu
     do {
         menu();
-        cout << "Make your Choice[1-4]: ";
+        cout << "Make your Choice[1-3]: ";
         cin >> s;
 
         switch (s) {
@@ -42,34 +41,25 @@ int main() {
                 id++;
                 break;
             case 2:
-                secondChoice(chats);
+                chats = secondChoice(chats);
                 break;
             case 3:
-                chats = thirdChoice(chats);
-                break;
-            case 4:
                 cout<<"Exit...";
                 exit(0);
             default:
                 cerr << "Invalid Choice, try again!"<<endl;
         }
-    } while (s != '4');
+    } while (s != '3');
 
 }
 
-/*
-    //remove chat
-    sender.removeChat(receiver);
-}
-*/
 
 void menu(){
     cout<<"Welcome in Your Chat!"<<endl;
     sleep(1);
     cout<<"1) Text new message "<<endl;
-    cout<<"2) View unread messages "<<endl;
-    cout<<"3) View chat log "<<endl;
-    cout<<"4) Exit"<<endl;
+    cout<<"2) View chat log "<<endl;
+    cout<<"3) Exit"<<endl;
 }
 
 Chat firstChoice(User u, int i){
@@ -99,24 +89,7 @@ Chat firstChoice(User u, int i){
    return *chat;
 }
 
-void secondChoice(vector<Chat>& c) {
-    if(!c.empty()) {
-        string read;
-        for (auto chat: c)
-            chat.getUnreadMessages(); //TODO: controllare funzione perche da messaggi non letti anche dopo aver letto da thirdchoice
-        sleep(2);
-        cout << "Do you want to read them? [Yes or No] " << endl;
-        cin >> read;
-        if (read == "Yes") {
-            thirdChoice(c);
-        }
-    }
-    else
-        cerr<<"There are no chats, you can start one from the menu! "<<endl;
-}
-
-
-vector<Chat>& thirdChoice(vector<Chat>& c){
+vector<Chat>& secondChoice(vector<Chat>& c){
     cout<<"Your Chat Log "<<endl;
     cout<< "Loading... "<<endl;
     sleep(1);

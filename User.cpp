@@ -13,9 +13,9 @@ void User::removeChat(const User &u) {
      auto it = chats.find(u.getName());
      chats.erase(it);
      if(chats.empty())
-         std::cout<<"Chat rimossa correttamente"<<std::endl;
+         std::cout<<"Chat successfully remove "<<std::endl;
      else
-         std::cerr<<"Impossibile rimuovere la chat"<<std::endl;
+         std::cerr<<"Unable to remove chat "<<std::endl;
 }
 
 Chat *User::findChat(const User &u) {
