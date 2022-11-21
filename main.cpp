@@ -50,9 +50,7 @@ int main() {
                 cerr << "Invalid Choice, try again!"<<endl;
         }
     } while (s != '3');
-
 }
-
 
 void menu(){
     cout<<"Welcome in Your Chat!"<<endl;
@@ -96,9 +94,12 @@ vector<Chat>& secondChoice(vector<Chat>& c){
     if(c.empty())
         cerr<<"There are no chats, you can start one from the menu! "<<endl;
     else{
-        for(auto chat:c){
-            chat.readMessages();
-            sleep(4);
+        for(auto it:c){
+            cout<<"There are "<<it.getUnreadMessages()<<" unread messages"<<endl;
+            for(int m = 0; m < it.getMessages().size(); m++) {
+                it.readMessage(m);
+                sleep(3);
+            }
         }
     }
     return c;

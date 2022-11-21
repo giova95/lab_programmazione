@@ -18,7 +18,7 @@ class User;
 class Chat : public Subject{
 public:
 
-    Chat(int id, User u1, User u2);
+    Chat(int id, const User& u1, const User& u2);
 
     virtual ~Chat(){}
 
@@ -26,9 +26,7 @@ public:
 
     void readMessage(int i);
 
-    void readMessages();
-
-    void getUnreadMessages();
+    int getUnreadMessages();
 
     const Message& lastMessage();
 
@@ -60,6 +58,10 @@ public:
 
     void setOtherId(const std::string &otherId) {
         Chat::otherId = otherId;
+    }
+
+    const std::vector<Message> &getMessages() const {
+        return messages;
     }
 
 private:

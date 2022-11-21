@@ -15,11 +15,11 @@ public:
 
     virtual ~MessageNotification(){}
 
-    virtual void attach() override;
+    void attach() override;
 
-    virtual void detach() override;
+    void detach() override;
 
-    virtual void update() override;
+    void update() override;
 
     void print(const Message &msg);
 
@@ -27,8 +27,8 @@ public:
         return active;
     }
 
-    void setActive(bool active) {
-        MessageNotification::active = active;
+    void setActive(bool act) {
+        MessageNotification::active = act;
     }
 
 private:

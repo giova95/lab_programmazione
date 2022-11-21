@@ -13,7 +13,7 @@
 class Chat;
 class User {
 public:
-    explicit User(std::string name) : name(name) {}
+    explicit User(const std::string& name) : name(name) {}
 
     virtual ~User(){}
 
@@ -28,8 +28,8 @@ public:
     const std::string &getName() const {
         return name;
     }
-    void setName(const std::string &name) {
-        User::name = name;
+    void setName(const std::string &n) {
+        User::name = n;
     }
 
 private:
