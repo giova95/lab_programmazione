@@ -25,7 +25,7 @@ void Chat::addMessage(const Message &msg) {
         notify();
     }
     else
-        std::cout<<"Invalid user for sender or receiver"<<std::endl;
+        throw std::invalid_argument("Invalid message, unregistered users");
 }
 
 void Chat::readMessage(int i){
