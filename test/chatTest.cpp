@@ -25,8 +25,10 @@ TEST(Chat, Methods){
     Chat c(0, g, a);
     Message text1("giovanni", "alberto", "Hi, what's up?", false);
     Message text2("giovanni", "alberto", " Hi, I'm fine and you? ", false);
+    Message text3("giorgio", "antonio", " Hi, this is an invalid message", false);
     c.addMessage(text1);
     c.addMessage(text2);
+    ASSERT_THROW(c.addMessage(text3),std::invalid_argument);
     ASSERT_THROW(c.readMessage(4), std::out_of_range);
     ASSERT_THROW(c.readMessage(10), std::out_of_range);
     ASSERT_EQ(c.getUnreadMessages(), 0);
