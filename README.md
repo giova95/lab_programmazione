@@ -1,4 +1,4 @@
-# lab_programmazione
+# Programming Lab - Chat Simulator
 
 Little project for the Programming Lab course that implements and simulates a chat between users.
 
